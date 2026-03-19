@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const pacienteController = require('../controllers/pacienteController');
-const authMiddleware = require('../middleware/authMiddleware');
+const auth = require('../middleware/autenticacaoMiddleware'); // Importa o "segurança"
 
-// Todas as rotas de pacientes protegidas por Token
-router.use(authMiddleware); 
+// Opção A: Proteger TODAS as rotas deste arquivo
+router.use(auth);
 
 // Colocar as rotas de pacientes
 router.get('/', pacienteController.listarTodos);
