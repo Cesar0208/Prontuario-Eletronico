@@ -7,9 +7,9 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const autenticacaoRoutes = require('./routes/autenticacaoRoutes');
-const pacienteRoutes = require('./routes/pacienteRoutes');
-const prontuarioRoutes = require('./routes/prontuarioRoutes');
+import autenticacaoRoutes from './routes/autenticacaoRoutes.js';
+import pacienteRoutes from './routes/pacienteRoutes.js';
+import prontuarioRoutes from './routes/prontuarioRoutes.js';
 
 app.use('/api/autenticacao', autenticacaoRoutes);
 app.use('/api/pacientes', pacienteRoutes);

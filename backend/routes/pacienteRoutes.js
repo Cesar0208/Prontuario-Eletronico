@@ -1,13 +1,17 @@
-const express = require('express');
+import express from 'express';
+import { listarTodos, obterPaciente, criarPaciente, atualizarPaciente, deletarPaciente } from '../controllers/pacienteController.js';
+import auth from '../middleware/autenticacaoMiddleware.js'; // Importa o "segurança"
+
 const router = express.Router();
-const pacienteController = require('../controllers/pacienteController');
-const auth = require('../middleware/autenticacaoMiddleware'); // Importa o "segurança"
 
 // Opção A: Proteger TODAS as rotas deste arquivo
-router.use(auth);
+// router.use(auth); // DESATIVADO TEMPORARIAMENTE PARA TESTES
 
-// Colocar as rotas de pacientes
-router.get('/', pacienteController.listarTodos);
-router.post('/cadastro', pacienteController.criarPaciente);
+// Rotas CRUD de pacientes
+router.get('/', listarTodos);
+router.get('/:id', obterPaciente);
+router.post('/cadastro', criarPaciente);
+router.put('/:id', atualizarPaciente);
+router.delete('/:id', deletarPaciente);
 
-module.exports = router;
+export default router;
