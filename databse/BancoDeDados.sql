@@ -17,6 +17,8 @@ CREATE TABLE pacientes (
 CREATE TABLE profissionais (
     id_profissional INT AUTO_INCREMENT PRIMARY KEY,
     nome_completo VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
     registro_conselho VARCHAR(50) UNIQUE NOT NULL, 
     especialidade VARCHAR(100),
     ativo BOOLEAN DEFAULT TRUE
